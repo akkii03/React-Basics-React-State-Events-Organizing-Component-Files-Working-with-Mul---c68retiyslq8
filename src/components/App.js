@@ -50,6 +50,16 @@ function App() {
                   setEditValue(item.input);
                   setHideInput(!hideInput);
                   setEditId(item.id);
+                  if(!hideInput) {
+                    if(editValue=="") {
+                      return ;
+                    }
+                    setTaskArr([
+                      ...taskArr,
+                      { id: new Date().getTime().toString(), input: editValue },
+                    ]);
+                  
+                  }
                 }}
               >
                 { hideInput ? "EDIT" : "SAVE"}
