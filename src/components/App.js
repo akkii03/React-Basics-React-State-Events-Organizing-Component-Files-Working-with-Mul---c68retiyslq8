@@ -12,6 +12,9 @@ function App() {
   }
 
   function clickHandel() {
+    if(task=="") {
+      return;
+    }
     setTaskArr([
       ...taskArr,
       { id: new Date().getTime().toString(), input: task },
@@ -49,7 +52,7 @@ function App() {
                   setEditId(item.id);
                 }}
               >
-                {hideInput ? "EDIT" : "SAVE"}
+                { hideInput ? "EDIT" : "SAVE"}
               </button>
 
               <button
