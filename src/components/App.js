@@ -7,6 +7,7 @@ function App() {
   const [hideInput, setHideInput] = useState(true);
   const [editValue, setEditValue] = useState("");
   const [editId, setEditId] = useState(false);
+
   function inputHandel(e) {
     setTask(e.target.value);
   }
@@ -20,6 +21,7 @@ function App() {
       { id: new Date().getTime().toString(), input: task },
     ]);
     setTask("");
+
   }
 
   function handelEdit() {
@@ -46,7 +48,7 @@ function App() {
 
               <button
                 className="edit"
-                onClick={() => {
+                  onClick={ () => {
                   setEditValue(item.input);
                   setHideInput(!hideInput);
                   setEditId(item.id);
@@ -54,15 +56,29 @@ function App() {
                     if(editValue=="") {
                       return ;
                     }
-                    setTaskArr([
-                      ...taskArr,
-                      { id: new Date().getTime().toString(), input: editValue },
-                    ]);
-                  
+                    // setTaskArr([
+                    //   ...taskArr,
+                    //   {input: editValue },
+                    // ]);  
+                      setTaskArr(
+                        taskArr.map((ele)=>{
+                          if(ele.id==editId) {
+                            return {...ele,input:editValue};
+                          }
+                          
+                            return ele;
+                          
+                        })
+                      )
+
                   }
+                  
+                  
                 }}
+              
               >
-                { hideInput ? "EDIT" : "SAVE"}
+             
+                { item.id===editId && !hideInput ? "SAVE" : "EDIT"}
               </button>
 
               <button
