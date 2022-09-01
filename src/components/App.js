@@ -7,6 +7,7 @@ function App() {
   const [hideInput, setHideInput] = useState(true);
   const [editValue, setEditValue] = useState("");
   const [editId, setEditId] = useState(false);
+  const [classBtn,setClassBtn] = useState("edit");
 
   function inputHandel(e) {
     setTask(e.target.value);
@@ -24,9 +25,7 @@ function App() {
 
   }
 
-  function handelEdit() {
-    console.log("edit btn clicked");
-  }
+
   return (
     <div id="main">
       <input type="textarea" id="task" onChange={inputHandel} value={task} />
@@ -47,19 +46,18 @@ function App() {
               {(item.id !== editId || hideInput) && <span>{item.input}</span>}
 
               <button
-                className="edit"
+                className={classBtn}
                   onClick={ () => {
+                 
                   setEditValue(item.input);
                   setHideInput(!hideInput);
                   setEditId(item.id);
                   if(!hideInput) {
+                    setClassBtn("editTask");
                     if(editValue=="") {
                       return ;
                     }
-                    // setTaskArr([
-                    //   ...taskArr,
-                    //   {input: editValue },
-                    // ]);  
+                 
                       setTaskArr(
                         taskArr.map((ele)=>{
                           if(ele.id==editId) {
@@ -72,13 +70,16 @@ function App() {
                       )
 
                   }
+                  else if(hideInput) {
+                    setClassBtn("saveTask");
+                  }
                   
                   
                 }}
               
               >
              
-                { item.id===editId && !hideInput ? "SAVE" : "EDIT"}
+                { item.id===editId && !hideInput ? "SAVE" : "EDIT" }
               </button>
 
               <button
