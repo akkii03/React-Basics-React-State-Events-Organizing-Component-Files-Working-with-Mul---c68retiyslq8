@@ -46,7 +46,7 @@ function App() {
               {(item.id !== editId || hideInput) && <span>{item.input}</span>}
 
               <button
-                className={classBtn}
+                className={hideInput?"editTask":"saveTask"}
                   onClick={ () => {
                  
                   setEditValue(item.input);
