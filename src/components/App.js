@@ -39,8 +39,8 @@ function App() {
               {item.id == editId && !hideInput && (
                 <input
                   value={editValue}
-                  onChange={(e) => setEditValue(e.target.value)}>
-                </input>
+                  onChange={(e) => setEditValue(e.target.value)}/>
+                
 				
               )}
               {(item.id !== editId || hideInput) && <span>{item.input}</span>}
@@ -52,9 +52,13 @@ function App() {
                   setEditValue(item.input);
                   setHideInput(!hideInput);
                   setEditId(item.id);
+<<<<<<< HEAD
+                
+=======
                   if(!hideInput) {
                     
 		    setClassBtn("saveTask");
+>>>>>>> 2c5a941c0162f4d0c602cf67678ea16c7a020a7a
                     if(editValue=="") {
                       return ;
                     }
@@ -70,10 +74,15 @@ function App() {
                         })
                       )
 
+<<<<<<< HEAD
+                  
+                 
+=======
                   }
                   else if(hideInput) {
                     setClassBtn("editTask");
                   }
+>>>>>>> 2c5a941c0162f4d0c602cf67678ea16c7a020a7a
                   
                   
                 }}
