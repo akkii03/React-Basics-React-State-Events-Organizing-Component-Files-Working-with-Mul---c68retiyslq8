@@ -52,13 +52,7 @@ function App() {
                   setEditValue(item.input);
                   setHideInput(!hideInput);
                   setEditId(item.id);
-<<<<<<< HEAD
-                
-=======
-                  if(!hideInput) {
-                    
-		    setClassBtn("saveTask");
->>>>>>> 2c5a941c0162f4d0c602cf67678ea16c7a020a7a
+
                     if(editValue=="") {
                       return ;
                     }
@@ -73,18 +67,7 @@ function App() {
                           
                         })
                       )
-
-<<<<<<< HEAD
-                  
-                 
-=======
-                  }
-                  else if(hideInput) {
-                    setClassBtn("editTask");
-                  }
->>>>>>> 2c5a941c0162f4d0c602cf67678ea16c7a020a7a
-                  
-                  
+ 
                 }}
               
               >
